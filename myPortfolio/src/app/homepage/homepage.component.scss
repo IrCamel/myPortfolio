@@ -1,0 +1,45 @@
+.hero-section {
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+  // Aggiunta per prevenire flash di contenuto non stilizzato
+  visibility: hidden;
+}
+
+.hero-text {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin-top: 15px;
+  }
+}
+
+.hero-image {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+
+  img {
+    max-width: 80%;
+    filter: drop-shadow(0.6rem 0.6rem 1rem rgba(20, 20, 180, 0.8));
+    padding: 10px;
+  }
+}
+
+.hero-section.visible {
+  visibility: visible;
+}
+
+.hero-section.visible .hero-text,
+.hero-section.visible .hero-image {
+  opacity: 1;
+  transform: translateY(0);
+}
