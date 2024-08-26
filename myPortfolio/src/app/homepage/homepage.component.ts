@@ -6,11 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./homepage.component.scss'],
 })
 export class HomepageComponent implements OnInit {
-  images: string[] = [
-    '../../assets/immagine_curriculum-removebg-preview.png',
-    '../../assets/Progetto senza titolo (1).jpg',
-    // Aggiungi qui i percorsi delle tue immagini
-  ];
+  private currentIndex = 0;
 
   ngOnInit() {
     setTimeout(() => {
