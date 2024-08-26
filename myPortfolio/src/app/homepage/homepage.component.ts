@@ -1,11 +1,17 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
-  styleUrl: './homepage.component.scss',
+  styleUrls: ['./homepage.component.scss'],
 })
-export class HomepageComponent {
+export class HomepageComponent implements OnInit {
+  images: string[] = [
+    '../../assets/immagine_curriculum-removebg-preview.png',
+    '../../assets/Progetto senza titolo (1).jpg',
+    // Aggiungi qui i percorsi delle tue immagini
+  ];
+
   ngOnInit() {
     setTimeout(() => {
       const section = document.querySelector('.hero-section') as HTMLElement;

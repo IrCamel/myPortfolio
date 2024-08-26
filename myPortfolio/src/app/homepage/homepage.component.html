@@ -1,12 +1,24 @@
 <div class="hero-section container">
   <div class="row align-items-center">
     <div class="col-md-6 hero-text">
-      <h1>Ciao, sono [Il Tuo Nome]</h1>
-      <p>Sviluppatore Web con passione per la creazione di esperienze digitali uniche.</p>
+      <h1>Ciao, sono Dario!</h1>
+      <p>"Sono un giovane sviluppatore fullstack di 21 anni con una forte passione per la tecnologia e i motori. Amo
+        creare soluzioni digitali innovative che uniscono creatività e funzionalità. Esplora il mio portfolio per
+        scoprire i progetti a cui ho lavorato e le competenze che sto sviluppando."</p>
+      <button class="btn">
+        DOWNLOAD CV
+      </button>
     </div>
     <div class="col-md-6 text-center hero-image">
-      <img src="../../assets/immagine_curriculum-removebg-preview.png" alt="Profile Picture" id="profilePic" class="img-fluid"/>
+      <img src="../../assets/Progetto senza titolo (1).jpg" alt="Profile Picture" id="profilePic" class="img-fluid imgProfile" />
     </div>
   </div>
-</div>
 
+  <swiper [slidesPerView]="1" [loop]="true" [autoplay]="{delay: 0, disableOnInteraction: false}" [speed]="3000">
+    <ng-template swiperSlide *ngFor="let img of images">
+      <img [src]="img" alt="Random image">
+    </ng-template>
+  </swiper>
+
+
+</div>

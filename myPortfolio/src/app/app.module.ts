@@ -1,3 +1,4 @@
+import { SwiperModule } from 'swiper/angular';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -15,6 +16,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    SwiperModule
   ],
   providers: [],
   bootstrap: [AppComponent]

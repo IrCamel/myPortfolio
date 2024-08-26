@@ -1,29 +1,8 @@
-<ng-template #content let-offcanvas>
-  <div class="offcanvas-header d-flex justify-content-end">
-    <button type="button" class="buttonClose" data-bs-dismiss="offcanvas" aria-label="Close"
-      (click)="offcanvas.close('Close click')"><i class="bi bi-x-lg escIcon"></i></button>
-  </div>
-  <div class="offcanvas-body">
-    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-      <li class="nav-item">
-        <a class="nav-link active text-white" aria-current="page" routerLink="/">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active text-white" aria-current="page" routerLink="/">Contact</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active text-white" aria-current="page" routerLink="/">About Me</a>
-      </li>
-    </ul>
-  </div>
-</ng-template>
-
-
-<div class="navbar navbar-expand-lg flex-row-reverse">
+<div class="navbar d-flex">
 
   <div class="container-fluid d-flex justify-content-center">
-    <div class="d-none d-lg-block">
-      <ul class="navbar-nav">
+    <div class="d-flex">
+      <ul class="navbar-nav d-flex flex-row gap-4">
         <li class="nav-item listContainer">
           <a class="nav-link active activeLinks" routerLink="/">Home</a>
         </li>
@@ -36,10 +15,5 @@
       </ul>
     </div>
   </div>
-
-  <button (click)="openEnd(content)" class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-    <i class="bi bi-three-dots-vertical text-white"></i>
-  </button>
 
 </div>
