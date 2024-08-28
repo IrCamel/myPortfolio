@@ -1,5 +1,3 @@
-
-
 .hero-section {
   margin-top: 50px;
   visibility: visible;
@@ -7,32 +5,208 @@
   .image-slider {
     overflow: hidden;
     width: 100%;
-    height: 110px; // Adjust the height as needed
+    height: 110px; // Altezza regolabile
     margin-top: 40px;
     background-color: rgb(23, 23, 23);
     border-radius: 15px;
+
     .slider-track {
       display: flex;
-      width: calc(100% * 2); // 6 images, adjust if the number of images changes
-      animation: slide 10s linear infinite;
       align-items: center;
+      animation: slide 10s linear infinite;
+      gap: 10px;
+
       .slide {
-        width: calc(50% / 13);
-        height: 100%; // Ensure this matches the number of images
+        height: 100%; // Altezza delle immagini
         flex-shrink: 0;
-        transition: transform 0.5s ease-in-out;
         padding: 15px;
+        transition: transform 0.5s ease-in-out;
+      }
+    }
+
+    @keyframes slide {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
+
+      // Scorrimento lungo metà della larghezza della traccia
+    }
+
+    // Media query per dispositivi grandi
+    @media screen and (min-width: 1200px) {
+      .slider-track {
+        gap: 20px; // Maggiore spazio tra le immagini
+
+        .slide {
+          width: calc(100% / 17); // Adatta la larghezza per schermi grandi
+        }
+      }
+    }
+
+    // Media query per dispositivi medi
+    @media screen and (min-width: 768px) and (max-width: 1199px) {
+      .slider-track {
+        gap: 15px; // Spazio tra le immagini
+
+        .slide {
+          width: calc(100% /12); // Adatta la larghezza per schermi medi
+        }
+      }
+    }
+
+    @media screen and (min-width: 431px) and (max-width: 767px) {
+      .slider-track {
+        gap: 10px;
+
+        .slide {
+          width: calc(100% / 8); // Adatta la larghezza per schermi piccoli
+        }
+      }
+    }
+
+    // Media query per dispositivi piccoli
+    @media screen and (max-width: 430px) {
+      height: 90px; // Riduzione dell'altezza per dispositivi piccoli
+
+      .slider-track {
+        gap: 10px;
+
+        .slide {
+          width: calc(100% / 6); // Adatta la larghezza per schermi piccoli
+        }
       }
     }
   }
 
-  @keyframes slide {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); } // Move by the width of 3 images
+  .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--deepBlue);
+    color: var(--lightGray);
+    margin: 50px 0 50px 0;
+    border-radius: 15px;
+    gap: 60px;
+    transition: 1s;
+    padding: 20px;
+
+    &:hover {
+      background-color: var(--darkBlue);
+    }
+
+    .about-me {
+      font-size: 2.5rem;
+      font-weight: bold;
+      transition: 1s;
+
+      span {
+        font-size: 0.8rem;
+        font-style: italic;
+        font-weight: 400;
+      }
+    }
+
+    .didascalia {
+      max-width: 60%;
+
+      span {
+        font-style: italic;
+        font-weight: bold;
+      }
+    }
+
+    // Media query for smaller devices
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+      gap: 20px;
+      text-align: center;
+
+      .about-me {
+        font-size: 2rem;
+      }
+
+      .didascalia {
+        max-width: 100%;
+        font-size: 1rem;
+      }
+    }
   }
+
+  .intro {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .project {
+    flex-direction: row;
+    margin: 0 0 50px 0;
+    .progetto {
+      display: flex;
+      justify-content: space-evenly;
+      .img {
+        .card {
+          max-width: 500px;
+          height: 300px;
+          perspective: 1000px;
+          background-color: #212A31;
+          border: none;
+        }
+
+        .card-inner {
+          width: 100%;
+          height: 100%;
+          position: relative;
+          transform-style: preserve-3d;
+          transition: transform 0.999s;
+        }
+
+        .card:hover .card-inner {
+          transform: rotateY(180deg);
+        }
+
+        .card-front,
+        .card-back {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          backface-visibility: hidden;
+        }
+
+        .card-front {
+          background-image: url(../../assets/Screenshot\ 2024-08-28\ 181121.png);
+          background-size: cover;
+          background-repeat: no-repeat;
+          color: #fff;
+          display: flex;
+          align-items: center;
+          border-radius: 10px;
+          justify-content: center;
+          font-size: 24px;
+          transform: rotateY(0deg);
+        }
+
+        .card-back {
+          background-color: #F08A5D;
+          color: #fff;
+          display: flex;
+          align-items: center;
+          border: 10px solid #F08A5D;
+          border-radius: 10px;
+          justify-content: center;
+          font-size: 24px;
+          transform: rotateY(180deg);
+        }
+
+      }
+
+    }
+  }
+
 }
-
-
 
 .hero-text {
   opacity: 0;
@@ -40,10 +214,10 @@
   transition: opacity 1s ease-out, transform 1s ease-out;
 
   .btn {
-    color: rgb(218, 178, 0);
+    color: var(--deepBlue);
     text-transform: uppercase;
     text-decoration: none;
-    border: 2px solid rgb(218, 178, 0);
+    border: 2px solid;
     padding: 10px 20px;
     font-size: 17px;
     font-weight: bold;
@@ -52,6 +226,7 @@
     transition: all 1s;
     overflow: hidden;
     font-family: "Poppins";
+    margin-bottom: 8px;
   }
 
   .btn:hover {
@@ -66,7 +241,7 @@
     top: 0;
     left: -40px;
     transform: skewX(45deg);
-    background-color: rgb(218, 178, 0);
+    background-color: var(--lightBlue);
     z-index: -1;
     transition: all 1s;
   }
@@ -79,7 +254,7 @@
 h1 {
   font-size: 2.5rem;
   font-weight: 600;
-  color: white;
+  color: var(--lightGray);
   font-family: "Poppins";
   font-style: normal;
   margin-top: 55px;
@@ -88,10 +263,16 @@ h1 {
 p {
   font-size: 1.2rem;
   margin-top: 25px;
-  color: white;
+  color: var(--lightGray);
   font-family: "Poppins";
   font-style: italic;
   font-weight: 400;
+
+  .glow {
+    font-style: normal;
+    font-weight: bold;
+    color: var(--deepBlue);
+  }
 }
 
 .hero-image {
@@ -101,13 +282,16 @@ p {
 
   .imgProfile {
     max-width: 90%;
-    filter: drop-shadow(1rem 1rem 0rem #a98100);
+    filter: drop-shadow(1rem 1rem 0rem var(--deepBlue));
     padding: 10px;
+    margin: 10px 0 10px 0;
     transition: 0.1s;
     cursor: pointer;
-    &:hover{
+    border-radius: 6%;
+
+    &:hover {
       transition: 0.2s;
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
   }
 }
