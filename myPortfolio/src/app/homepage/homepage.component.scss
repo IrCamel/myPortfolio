@@ -143,10 +143,20 @@
 
   .project {
     flex-direction: row;
-    margin: 0 0 50px 0;
+    margin: 0 0 20px 0;
+    height: 350px;
+
+    .title-card {
+      text-align: center;
+      font-size: 1.2rem;
+      font-style: italic;
+      font-weight: 600;
+    }
+
     .progetto {
       display: flex;
       justify-content: space-evenly;
+
       .img {
         .card {
           max-width: 500px;
@@ -171,41 +181,59 @@
         .card-front,
         .card-back {
           position: absolute;
-          width: 100%;
-          height: 100%;
+          max-width: 100%;
+          height: auto;
           backface-visibility: hidden;
         }
 
         .card-front {
-          background-image: url(../../assets/Screenshot\ 2024-08-28\ 181121.png);
-          background-size: cover;
-          background-repeat: no-repeat;
-          color: #fff;
-          display: flex;
-          align-items: center;
+          width: auto;
           border-radius: 10px;
-          justify-content: center;
-          font-size: 24px;
           transform: rotateY(0deg);
         }
 
         .card-back {
-          background-color: #F08A5D;
-          color: #fff;
-          display: flex;
-          align-items: center;
-          border: 10px solid #F08A5D;
+          width: auto;
           border-radius: 10px;
-          justify-content: center;
-          font-size: 24px;
           transform: rotateY(180deg);
         }
-
       }
 
+      .text {
+        padding: 10px 15px 0 15px;
+        margin: 0 5px 0 0;
+        max-height: 225px;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: var(--lightBlue) transparent;
+
+        &::-webkit-scrollbar {
+          width: 8px;
+
+        }
+
+        &::-webkit-scrollbar-track {
+          background: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: var(--lightBlue);
+          border-radius: 80px;
+          border: 1px solid transparent;
+          background-clip: content-box;
+        }
+
+        &::-webkit-scrollbar-button {
+          display: none;
+          height: 0;
+          width: 0;
+          color: transparent;
+          background-color: transparent;
+
+        }
+      }
     }
   }
-
 }
 
 .hero-text {
