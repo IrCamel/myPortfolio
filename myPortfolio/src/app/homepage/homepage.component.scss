@@ -142,7 +142,6 @@
   }
 
   .project {
-    flex-direction: row;
     margin: 0 0 20px 0;
     height: 350px;
 
@@ -158,6 +157,8 @@
       justify-content: space-evenly;
 
       .img {
+        max-width: 500px;
+
         .card {
           max-width: 500px;
           height: 300px;
@@ -188,6 +189,7 @@
 
         .card-front {
           width: auto;
+          max-height: 240px;
           border-radius: 10px;
           transform: rotateY(0deg);
         }
@@ -200,12 +202,16 @@
       }
 
       .text {
-        padding: 10px 15px 0 15px;
-        margin: 0 5px 0 0;
+        padding: 0 0 0 0;
+        margin: 0 10px 0 10px;
         max-height: 225px;
         overflow-y: auto;
         scrollbar-width: thin;
         scrollbar-color: var(--lightBlue) transparent;
+
+        .description {
+          margin: 0;
+        }
 
         &::-webkit-scrollbar {
           width: 8px;
@@ -232,9 +238,43 @@
 
         }
       }
+
     }
+
+  }
+  @media screen and (max-width: 765px) {
+
+    .project{
+      margin: 60px 0 60px 0;
+
+      .progetto {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+        .img {
+          width: 400px;
+
+          .card {
+            max-width: 500px;
+            height: 200px;
+          }
+        }
+        .text{
+          max-height: 120px;
+          width: 100%;
+          margin: 10px 0 10px 0;
+        }
+      }
+    }
+
   }
 }
+
+
+
 
 .hero-text {
   opacity: 0;
