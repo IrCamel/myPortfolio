@@ -202,6 +202,10 @@
     height: 350px;
 
     .title-card {
+      color: var(--deepBlue);
+    }
+
+    .title-card {
       text-align: center;
       font-size: 1.2rem;
       font-style: italic;
@@ -263,7 +267,7 @@
 
       .text {
         padding: 0 0 0 0;
-        margin: 0 10px 0 10px;
+        margin: 0 0 0 10px;
         max-height: 225px;
         overflow-y: auto;
         scrollbar-width: thin;
@@ -308,16 +312,14 @@
     .project {
       margin: 60px 0 60px 0;
 
-      .title-card {
-        color: var(--deepBlue);
-      }
+
 
       .progetto {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 10px;
+        gap: 5px;
 
         .img {
           width: 350px;
@@ -331,7 +333,7 @@
         .text {
           max-height: 120px;
           width: 100%;
-          margin: 10px 0 10px 0;
+          margin: 0 0 10px 0;
         }
       }
     }
@@ -470,10 +472,20 @@
     overflow: hidden;
     font-family: "Poppins";
     margin-bottom: 8px;
+    a{
+      text-decoration: none;
+      color: var(--deepBlue);
+      transition: 0.2s;
+    }
   }
 
   .btn:hover {
     color: black;
+    a{
+      text-decoration: none;
+      color: black;
+      transition: 0.2s;
+    }
   }
 
   .btn::before {
