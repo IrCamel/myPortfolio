@@ -1,6 +1,61 @@
+// Definizione delle animazioni
+@keyframes fadeIn {
+  0% {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+}
+
+// Applicazione dell'animazione agli elementi di testo
+.text-animate {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+
+  &.visible {
+    animation: fadeIn 0.8s forwards;
+  }
+
+  &.invisible {
+    animation: fadeOut 0.8s forwards;
+  }
+}
+
+// Per attivare l'animazione al momento dello scroll
+.hero-section .hero-text,
+.main .about-me,
+.main .didascalia,
+.intro,
+.project .title-card,
+.project .description,
+.contact-me .intro {
+  @extend .text-animate;
+}
+
+// Media queries per dispositivi piccoli
+@media screen and (max-width: 768px) {
+  .text-animate {
+    transform: none;
+  }
+}
+
+
 .hero-section {
-  margin-top: 50px;
-  visibility: visible;
 
   .image-slider {
     overflow: hidden;
@@ -139,6 +194,7 @@
   .intro {
     font-size: 1.8rem;
     text-align: center;
+    font-weight: 600;
   }
 
   .project {
@@ -152,6 +208,10 @@
       font-weight: 600;
     }
 
+    .reverse{
+      display: flex;
+      flex-direction: row-reverse;
+    }
     .progetto {
       display: flex;
       justify-content: space-evenly;
@@ -242,10 +302,15 @@
     }
 
   }
+
   @media screen and (max-width: 765px) {
 
-    .project{
+    .project {
       margin: 60px 0 60px 0;
+
+      .title-card {
+        color: var(--deepBlue);
+      }
 
       .progetto {
         display: flex;
@@ -255,14 +320,15 @@
         gap: 10px;
 
         .img {
-          width: 400px;
+          width: 350px;
 
           .card {
             max-width: 500px;
             height: 200px;
           }
         }
-        .text{
+
+        .text {
           max-height: 120px;
           width: 100%;
           margin: 10px 0 10px 0;
@@ -271,6 +337,115 @@
     }
 
   }
+
+
+  .social-login-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 0 90px 0;
+    -webkit-box-reflect: below 5px linear-gradient(transparent, #00000055);
+  }
+
+  .social-login-icons svg {
+    width: 40px;
+  }
+
+  .social-icon-1,
+  .social-icon-1-1,
+  .social-icon-2,
+  .social-icon-2-2,
+  .social-icon-3,
+  .social-icon-3-3,
+  .social-icon-4,
+  .social-icon-4-4 {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    margin: 20px 0 0px 0;
+  }
+
+  .icon svg {
+    fill: #111;
+  }
+
+  .socialcontainer {
+    height: 80px;
+    overflow: hidden;
+  }
+
+  .social-icon-1 {
+    transition-duration: 0.4s;
+    background-color: #0A66C2;
+    transition-timing-function: cubic-bezier(0.46, -0.78, 0.5, 1.56);
+  }
+
+  .social-icon-1 svg,
+  .social-icon-2 svg,
+  .social-icon-3 svg,
+  .social-icon-4 svg {
+    opacity: 0;
+    transition-duration: 0.5s;
+    transition-delay: 0.2s;
+  }
+
+  .social-icon-1-1 {
+    transition-duration: 0.4s;
+    background-color: rgb(0, 0, 0, 0);
+  }
+
+  .socialcontainer:hover .social-icon-1 {
+    transform: translateY(-70px);
+  }
+
+  .socialcontainer:hover .social-icon-1 svg,
+  .socialcontainer:hover .social-icon-2 svg,
+  .socialcontainer:hover .social-icon-3 svg,
+  .socialcontainer:hover .social-icon-4 svg {
+    opacity: 1;
+  }
+
+  .social-icon-2 {
+    transition-duration: 0.4s;
+    transition-timing-function: cubic-bezier(0.46, -0.78, 0.5, 1.56);
+    background: linear-gradient(72.44deg,
+        #ff7a00 11.92%,
+        #ff0169 51.56%,
+        #d300c5 85.69%);
+  }
+
+  .socialcontainer:hover .social-icon-2 {
+    transform: translateY(-70px);
+  }
+
+  .social-icon-3 {
+    transition-duration: 0.4s;
+    transition-timing-function: cubic-bezier(0.46, -0.78, 0.5, 1.56);
+    background: #316ff6;
+  }
+
+  .socialcontainer:hover .social-icon-3 {
+    transform: translateY(-70px);
+  }
+
+  .social-icon-4 {
+    transition-duration: 0.4s;
+    transition-timing-function: cubic-bezier(0.46, -0.78, 0.5, 1.56);
+
+    background: linear-gradient(180deg,
+        rgba(129, 34, 144, 1) 0%,
+        rgba(77, 34, 124, 1) 91%);
+  }
+
+  .socialcontainer:hover .social-icon-4 {
+    transform: translateY(-70px);
+  }
+
+
 }
 
 
